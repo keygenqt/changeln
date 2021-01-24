@@ -1,0 +1,30 @@
+name: changeln
+base: core18
+version: '0.0.1'
+summary: Automatically generate change log from your tags.
+description: |
+  Multiple projects. Grouping by regular expression. Parsing one comment to multiplicity. Template engine (Mako).
+grade: stable
+confinement: strict
+
+parts:
+  changeln:
+    plugin: python
+    python-version: python3
+    source: .
+    python-packages:
+      - click
+    stage-packages:
+      - git
+
+  changeln-run:
+    plugin: dump
+    source: scripts
+    organize:
+      run.sh: bin/
+
+apps:
+  changeln:
+    command: bin/run.sh
+    plugs:
+      - home
