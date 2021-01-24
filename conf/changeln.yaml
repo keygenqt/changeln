@@ -1,0 +1,41 @@
+### Changeln Configuration Settings
+---
+
+### Path to conf template
+# Template engine is Mako - https://www.makotemplates.org/
+# Base template format is Markdown - https://python-markdown.github.io/
+
+# Data for generate template:
+# ln_last - last version
+# ln_released - count released versions
+# ln_main_date - date update changelog
+# ln_list_versions - map tags order by name, natural sort
+#   tag - tag name
+#   date - format fixed tag
+#   target - for gen link to title
+# ln_map_commits - map with commits split by groups
+#   groups - map data commit
+#     date - date commit
+#     author - map {name, email}
+#     optional params - data parse by regex back references
+template: /home/keygenqt/changeln.yaml
+
+#### Format output title date
+# Format codes - https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes
+date_main: '%m-%d-%y %H:%M:%S'
+
+#### Format output other dates
+# Format codes - https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes
+date: '%m-%d-%y %H:%M:%S'
+
+### List projects for generate changelog
+# {key}: {path}
+projects:
+  first: /home/keygenqt/projects/test1
+  second: /home/keygenqt/projects/test2
+  third: /home/keygenqt/projects/test3
+
+groups:
+  Bug: '^[(Bug)]\s(.+)$'
+  Added: '^[(Added)]\s(.+)$'
+  Fixed: '^[(Fixed)]\s(.+)$'
