@@ -3,6 +3,8 @@ import datetime
 import click
 from mako.template import Template
 
+from app.src.components.helper import get_path_conf
+
 
 @click.group(name='changelog')
 def cli_changelog():
@@ -112,4 +114,4 @@ def pdf(ctx):
 @click.pass_context
 def html(ctx):
     """Generate changelog to html."""
-    print(ctx.obj['test'])
+    print(ctx.obj.path_conf)

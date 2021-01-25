@@ -1,4 +1,5 @@
-### Changeln Configuration Settings
+def gen_default_conf():
+    return """### Changeln Configuration Settings
 
 # Template engine is Mako - https://www.makotemplates.org/
 # Base template format is Markdown - https://python-markdown.github.io/
@@ -11,8 +12,8 @@ projects:
   - /home/keygenqt/projects/test3
 
 ### Group commits
-# {group name}: {regex}
 groups:
   Bug: '^[(Bug)]\s(.+)$'
   Added: '^[(Added)]\s(.+)$'
   Fixed: '^[(Fixed)]\s(.+)$'
+"""
