@@ -27,7 +27,10 @@ class Parser:
 
     def ln_last(self):
         tags = sorted(self.repo.tags, key=lambda t: t.commit.committed_datetime)
-        return tags[-1]
+        if tags:
+            return tags[-1]
+        else:
+            'None'
 
     def ln_released(self):
         return len(self.repo.tags)
@@ -42,23 +45,26 @@ class Parser:
 
     def ln_list_tags_commits(self):
         tags = []
-        to = 'HEAD'
-        tag = None
-        for tag in self.ln_list_tags():
-            data = list(self.repo.iter_commits('{}...{}'.format(tag, to), no_merges=True))
-            tags.append(dict(
-                to=('TAG', 'HEAD')[to == 'HEAD'],
-                tag=(to, None)[to == 'HEAD'],
-                data=data
-            ))
-            to = tag
 
-        if tag is not None:
-            tags.append(dict(
-                to='TAG',
-                tag=tag,
-                data=list(self.repo.iter_commits(tag, no_merges=True))
-            ))
+        list_tags = self.ln_list_tags()
+        if list_tags:
+            to = 'HEAD'
+            tag = None
+            for tag in list_tags:
+                data = list(self.repo.iter_commits('{}...{}'.format(tag, to), no_merges=True))
+                tags.append(dict(
+                    to=('TAG', 'HEAD')[to == 'HEAD'],
+                    tag=(to, None)[to == 'HEAD'],
+                    data=data
+                ))
+                to = tag
+
+            if tag is not None:
+                tags.append(dict(
+                    to='TAG',
+                    tag=tag,
+                    data=list(self.repo.iter_commits(tag, no_merges=True))
+                ))
 
         return tags
 

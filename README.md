@@ -1,7 +1,7 @@
 ChangelnCLI
 ===================
 
-***Version**: 1.0.1*
+***Version**: 1.0.2*
 
 Automatically generate **change log** from your tags.
 

@@ -1,6 +1,6 @@
 name: changeln
 base: core18
-version: '1.0.1'
+version: '1.0.2'
 summary: Automatically generate change log from your tags.
 description: |
   Grouping by regular expression. Parsing one comment to multiplicity. Template engine (Mako).
