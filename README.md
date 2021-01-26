@@ -21,7 +21,7 @@ Automatically generate **change log** from your tags.
 #### pyz
 
 ```shell
-wget https://github.com/keygenqt/ChangelnCLI/blob/master/data/changeln-1.0.1.pyz
+wget https://github.com/keygenqt/ChangelnCLI/raw/master/data/changeln-1.0.1.pyz
 ```
 ```shell
 # update CHANGELOG.md
