@@ -5,7 +5,7 @@ with open('README.md', 'r') as fh:
 
 setuptools.setup(
     name='changeln',
-    version='1.0.3',
+    version='1.0.4',
     author='Vitaliy Zarubin',
     author_email='keygenqt@gmail.com',
     description='Automatically generate change log from your tags',

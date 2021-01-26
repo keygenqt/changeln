@@ -79,6 +79,8 @@ ${"##"} Versions
                 <% continue %>
             % endif
             * ${data.message.strip()} (${data.author})
+        % else:
+            *None*
         % endfor
     % endif
 % endfor

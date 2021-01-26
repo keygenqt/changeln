@@ -98,6 +98,9 @@ class Parser:
                                 )
                             ))
             for index in groups:
-                tag[index] = commits[index]
+                if index in commits:
+                    tag[index] = commits[index]
+                else:
+                    tag[index] = []
             result.append(tag)
         return result

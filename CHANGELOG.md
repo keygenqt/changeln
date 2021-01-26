@@ -1,18 +1,23 @@
 
 
 
-## Updated: 26/01/2021 04:24:43 AM
+## Updated: 26/01/2021 04:35:47 AM
 
 ## Info
 
-- Last tag: 1.0.2
-- Released: 1
+- Last tag: 1.0.3
+- Released: 2
 
 ## Versions
+- Version: 1.0.3 (26/01/2021)
 - Version: 1.0.2 (26/01/2021)
 
 
-### HEAD (26/01/2021 04:24:43 AM)
+### HEAD (26/01/2021 04:35:47 AM)
+
+*None*
+
+### Version: 1.0.3 (26/01/2021)
 
 
 #### Feature
@@ -21,6 +26,7 @@
 
 #### Change
 
+* [TASK-1] Add html, pdf, md CHANGELOG (keygenqt)
 * [TASK-1] Update version (keygenqt)
 
 #### Bug
