@@ -3,7 +3,7 @@ base: core18
 version: '1.0.4'
 summary: Automatically generate change log from your tags.
 description: |
-  Grouping by regular expression. Parsing one comment to multiplicity. Template engine (Mako).
+  Generate markdown, html, pdf. Grouping by regular expression. Parsing one comment to multiplicity. Template engine (Mako).
 grade: stable
 confinement: strict
 
