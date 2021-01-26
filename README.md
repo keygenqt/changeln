@@ -25,13 +25,13 @@ wget https://github.com/keygenqt/ChangelnCLI/raw/master/data/changeln-1.0.3.pyz
 ```
 ```shell
 # update CHANGELOG.md
-python3.6 changeln-1.0.1.pyz --project=/path/to/your/project changelog markdown
+python3.6 changeln-1.0.3.pyz --project=/path/to/your/project changelog markdown
 
 # update CHANGELOG.html
-python3.6 changeln-1.0.1.pyz --project=/path/to/your/project changelog html
+python3.6 changeln-1.0.3.pyz --project=/path/to/your/project changelog html
 
 # update CHANGELOG.pdf
-python3.6 changeln-1.0.1.pyz --project=/path/to/your/project changelog pdf
+python3.6 changeln-1.0.3.pyz --project=/path/to/your/project changelog pdf
 ```
 
 #### snap

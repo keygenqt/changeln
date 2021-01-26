@@ -1,7 +1,7 @@
 
 
 
-## Updated: 26/01/2021 04:21:12 AM
+## Updated: 26/01/2021 04:24:43 AM
 
 ## Info
 
@@ -12,7 +12,7 @@
 - Version: 1.0.2 (26/01/2021)
 
 
-### HEAD (26/01/2021 04:21:12 AM)
+### HEAD (26/01/2021 04:24:43 AM)
 
 
 #### Feature
@@ -25,7 +25,7 @@
 
 #### Bug
 
-*None*
+* [TASK-1] Fix bug output (keygenqt)
 
 
 ### Version: 1.0.2 (26/01/2021)
