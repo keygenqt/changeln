@@ -1,21 +1,38 @@
 
 
 
-## Updated: 26/01/2021 04:35:47 AM
+## Updated: 26/01/2021 04:41:18 AM
 
 ## Info
 
-- Last tag: 1.0.3
-- Released: 2
+- Last tag: 1.0.4
+- Released: 3
 
 ## Versions
+- Version: 1.0.4 (26/01/2021)
 - Version: 1.0.3 (26/01/2021)
 - Version: 1.0.2 (26/01/2021)
 
 
-### HEAD (26/01/2021 04:35:47 AM)
+### HEAD (26/01/2021 04:41:18 AM)
 
 *None*
+
+### Version: 1.0.4 (26/01/2021)
+
+
+#### Feature
+
+*None*
+
+#### Change
+
+*None*
+
+#### Bug
+
+* [TASK-1] Fix empty head output (keygenqt)
+
 
 ### Version: 1.0.3 (26/01/2021)
 
