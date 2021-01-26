@@ -13,7 +13,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 """
-
 import re
 
 import git
@@ -71,14 +70,16 @@ class Parser:
     def ln_list_groups(self, groups):
         tags = self.ln_list_tags_commits()
         result = []
-        for index in groups:
-            for tag in tags:
-                commits = []
-                for item in tag['data']:
-                    for message in item.message.split('\n'):
+        for tag in tags:
+            commits = dict()
+            for item in tag['data']:
+                for message in item.message.split('\n'):
+                    for index in groups:
+                        if index not in commits:
+                            commits[index] = []
                         optional = re.findall(groups[index], message)
                         if optional:
-                            commits.append(dict(
+                            commits[index].append(dict(
                                 optional=optional[0],
                                 commit=git.Commit(
                                     item.repo,
@@ -96,7 +97,7 @@ class Parser:
                                     gpgsig=item.gpgsig
                                 )
                             ))
-
-                tag[index] = commits
-                result.append(tag)
+            for index in groups:
+                tag[index] = commits[index]
+            result.append(tag)
         return result

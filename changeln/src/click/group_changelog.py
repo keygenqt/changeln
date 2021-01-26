@@ -15,6 +15,7 @@ limitations under the License.
 """
 
 import datetime
+import pprint
 
 import click
 import markdown as mark

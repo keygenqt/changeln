@@ -29,7 +29,7 @@ def get_app_name():
 
 
 def get_app_version():
-    return '1.0.2'
+    return '1.0.3'
 
 
 def get_path_conf(conf=None):

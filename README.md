@@ -1,7 +1,7 @@
 ChangelnCLI
 ===================
 
-***Version**: 1.0.2*
+***Version**: 1.0.3*
 
 Automatically generate **change log** from your tags.
 
@@ -21,7 +21,7 @@ Automatically generate **change log** from your tags.
 #### pyz
 
 ```shell
-wget https://github.com/keygenqt/ChangelnCLI/raw/master/data/changeln-1.0.2.pyz
+wget https://github.com/keygenqt/ChangelnCLI/raw/master/data/changeln-1.0.3.pyz
 ```
 ```shell
 # update CHANGELOG.md
