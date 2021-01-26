@@ -1,7 +1,7 @@
 
 
 
-## Updated: 26/01/2021 04:41:18 AM
+## Updated: 26/01/2021 04:47:31 AM
 
 ## Info
 
@@ -14,9 +14,21 @@
 - Version: 1.0.2 (26/01/2021)
 
 
-### HEAD (26/01/2021 04:41:18 AM)
+### HEAD (26/01/2021 04:47:31 AM)
+
+
+#### Feature
 
 *None*
+
+#### Change
+
+* [TASK-1] Update CHANGELOG.md (keygenqt)
+
+#### Bug
+
+*None*
+
 
 ### Version: 1.0.4 (26/01/2021)
 
