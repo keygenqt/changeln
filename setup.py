@@ -5,7 +5,7 @@ with open('README.md', 'r') as fh:
 
 setuptools.setup(
     name='changeln',
-    version='0.0.1',
+    version='1.0.1',
     author='Vitaliy Zarubin',
     author_email='keygenqt@gmail.com',
     description='Automatically generate change log from your tags',
@@ -16,11 +16,20 @@ setuptools.setup(
     include_package_data=True,
     py_modules=['colors'],
     install_requires=[
-        'click'
+        'cffi==1.12.3',
+        'pillow',
+        'click',
+        'Mako',
+        'pyYaml',
+        'gitpython',
+        'natsort',
+        'Markdown',
+        'WeasyPrint',
+        'setuptools',
     ],
-    python_requires='>=3.6',
+    python_requires='==3.6.*',
     entry_points="""
         [console_scripts]
-        changeln = app.__main__:cli
+        changeln = changeln.__main__:cli
     """
 )

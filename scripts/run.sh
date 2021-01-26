@@ -1,4 +1,4 @@
 #! /bin/sh
 
-# run app
-"$SNAP"/usr/bin/python3 "$SNAP"/bin/mylibrary "$@"
+# run changeln
+"$SNAP"/usr/bin/python3 "$SNAP"/bin/changeln "$@"

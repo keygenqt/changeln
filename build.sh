@@ -5,10 +5,10 @@ version=$(grep version setup.py | sed "s/ //g" | sed "s/',//g" | sed "s/version=
 # clean old build
 rm -r dist build ./*.egg-info ./*.pyz
 
-# build python app
+# build python changeln
 python3 setup.py sdist bdist_wheel
 
-# include the app
+# include the changeln
 pip3 install . --target dist/
 
 # finally, build!

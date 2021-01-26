@@ -1,3 +1,10 @@
+cffi==1.12.3
+pillow
 click
 Mako
 pyYaml
+gitpython
+natsort
+Markdown
+WeasyPrint
+setuptools

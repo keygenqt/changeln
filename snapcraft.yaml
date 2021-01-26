@@ -1,9 +1,9 @@
 name: changeln
 base: core18
-version: '0.0.1'
+version: '1.0.1'
 summary: Automatically generate change log from your tags.
 description: |
-  Multiple projects. Grouping by regular expression. Parsing one comment to multiplicity. Template engine (Mako).
+  Grouping by regular expression. Parsing one comment to multiplicity. Template engine (Mako).
 grade: stable
 confinement: strict
 
@@ -14,8 +14,16 @@ parts:
     source: .
     python-packages:
       - click
+      - Mako
+      - pyYaml
+      - gitpython
+      - natsort
+      - Markdown
+      - WeasyPrint
+      - setuptools
     stage-packages:
       - git
+      - libpangocairo-1.0-0
 
   changeln-run:
     plugin: dump
@@ -26,5 +34,10 @@ parts:
 apps:
   changeln:
     command: bin/run.sh
+    environment:
+      LANG: C.UTF-8
+      LC_ALL: C.UTF-8
+    extensions:
+      - gnome-3-28
     plugs:
       - home

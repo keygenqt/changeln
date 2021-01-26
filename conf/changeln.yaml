@@ -4,15 +4,9 @@
 # Base template format is Markdown - https://python-markdown.github.io/
 ---
 
-### List projects for generate changelog
-projects:
-  - /home/keygenqt/projects/test1
-  - /home/keygenqt/projects/test2
-  - /home/keygenqt/projects/test3
-
 ### Group commits
 # {group name}: {regex}
 groups:
-  Bug: '^[(Bug)]\s(.+)$'
-  Added: '^[(Added)]\s(.+)$'
-  Fixed: '^[(Fixed)]\s(.+)$'
+  Bug: '(.+)\s\[(Bug)\]\s+(.+)'
+  Change: '(.+)\s\[(Change)\]\s+(.+)'
+  Feature: '(.+)\s\[(Feature)\]\s+(.+)'
