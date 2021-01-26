@@ -1,6 +1,8 @@
 ChangelnCLI
 ===================
 
+![picture](data/chronometer-180.png)
+
 ***Version**: 1.0.4*
 
 Automatically generate **change log** from your tags.
@@ -55,6 +57,8 @@ changeln --project=/path/to/your/project changelog pdf
 
 ### Preview
 
-![picture](data/screenshot.png)
+![picture](data/preview.png)
 
 FYI, ln	= natural **log**arithm ;)
+
+<div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
