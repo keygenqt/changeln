@@ -5,7 +5,7 @@ Changeln
 
 ***Version**: 1.0.4*
 
-Generate **changelog** from your git tags.
+Generate **changelog** from git tags.
 
 #### Basic functionality
 * Grouping by regular expression
