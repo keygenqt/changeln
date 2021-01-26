@@ -1,7 +1,7 @@
-ChangelnCLI
+Changeln
 ===================
 
-![picture](data/chronometer-180.png)
+![picture](data/chronometer-160.png)
 
 ***Version**: 1.0.4*
 
