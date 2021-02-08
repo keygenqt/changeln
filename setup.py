@@ -27,7 +27,7 @@ setuptools.setup(
         'WeasyPrint',
         'setuptools',
     ],
-    python_requires='==3.6.*',
+    python_requires='>=3.6',
     entry_points="""
         [console_scripts]
         changeln = changeln.__main__:cli
