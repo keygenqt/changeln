@@ -24,6 +24,9 @@ class Parser:
         self.path = path
         self.repo = git.Repo(path)
 
+    def get_branch(self):
+        return self.repo.active_branch.name
+
     def ln_last(self):
         tags = sorted(self.repo.tags, key=lambda t: t.commit.committed_datetime)
         if tags:
@@ -36,7 +39,7 @@ class Parser:
 
     def ln_list_tags(self):
         tags = []
-        for tag in reversed(natsorted(self.repo.git.tag(merged='master').split('\n'), key=lambda y: y.lower())):
+        for tag in reversed(natsorted(self.repo.git.tag().split('\n'), key=lambda y: y.lower())):
             for item in self.repo.tags:
                 if tag == item.name:
                     tags.append(item)

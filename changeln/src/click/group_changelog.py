@@ -59,7 +59,7 @@ def _gen_changelog(ctx):
 def markdown(ctx):
     """Generate changelog to markdown."""
     result = _gen_changelog(ctx)
-    path = '{}/CHANGELOG.md'.format(ctx.obj.project)
+    path = '{}/CHANGELOG.md'.format(ctx.obj.output)
     _save(path, result)
 
 
@@ -67,7 +67,7 @@ def markdown(ctx):
 @click.pass_context
 def pdf(ctx):
     """Generate changelog to pdf."""
-    path = '{}/CHANGELOG.pdf'.format(ctx.obj.project)
+    path = '{}/CHANGELOG.pdf'.format(ctx.obj.output)
     HTML(string=mark.markdown(_gen_changelog(ctx))).write_pdf(path)
     click.echo('{}\n{}'.format(
         click.style('\nUpdate changelog successfully.', fg="green"),
@@ -80,5 +80,5 @@ def pdf(ctx):
 def html(ctx):
     """Generate changelog to html."""
     result = mark.markdown(_gen_changelog(ctx))
-    path = '{}/CHANGELOG.html'.format(ctx.obj.project)
+    path = '{}/CHANGELOG.html'.format(ctx.obj.output)
     _save(path, result)

@@ -46,11 +46,17 @@ class Config:
                 print(get_default_template(), file=file)
         return path
 
-    def __init__(self, test, conf, template, project):
+    def __init__(self, test, conf, template, project, output):
         self.test = test
         self.project = project
         self.path_template = Config.init_template(template)
         self.path_conf = Config.init_conf(conf)
+
+        if not output:
+            self.output = project
+        else:
+            self.output = output
+
         with open(self.path_template, 'r') as file:
             self.template = '\n'.join([line.strip() for line in file.read().splitlines()])
         with open(self.path_conf, 'rb') as file:

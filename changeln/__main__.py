@@ -17,7 +17,8 @@ Config.init_conf()
 @click.option('--test', help='For test.', hidden=True, is_flag=True, default=False, is_eager=True)
 @click.option('--conf', '-c', default=None, help='Specify config path.', type=click.STRING, required=False)
 @click.option('--template', '-t', default=None, help='Specify template path.', type=click.STRING, required=False)
-def cli(ctx, test, conf, template, project):
+@click.option('--output', '-o', default=None, help='Output file path.', type=click.STRING, required=False)
+def cli(ctx, test, conf, template, project, output):
     """Automatically generate change log from your tags."""
     if not Path(project).is_dir():
         click.echo(click.style("\nNot found dir {}.\n".format(project), fg="red"))
@@ -26,7 +27,7 @@ def cli(ctx, test, conf, template, project):
         click.echo(click.style("\nNot found git {}/.git.\n".format(project), fg="red"))
         exit(1)
     if not test:
-        ctx.obj = Config(test, conf, template, project)
+        ctx.obj = Config(test, conf, template, project, output)
 
 
 cli.add_command(cli_changelog)

@@ -3,7 +3,7 @@ Changeln
 
 ![picture](data/chronometer-160.png)
 
-***Version**: 1.0.4*
+***Version**: 1.0.6*
 
 Generate **changelog** from git tags
 
@@ -23,17 +23,17 @@ Generate **changelog** from git tags
 #### pyz
 
 ```shell
-wget https://github.com/keygenqt/ChangelnCLI/raw/master/data/changeln-1.0.4.pyz
+wget https://github.com/keygenqt/ChangelnCLI/raw/master/data/changeln-1.0.6.pyz
 ```
 ```shell
 # update CHANGELOG.md
-python3.6 changeln-1.0.4.pyz --project=/path/to/your/project changelog markdown
+python3 changeln-1.0.6.pyz --project=/path/to/your/project changelog markdown
 
 # update CHANGELOG.html
-python3.6 changeln-1.0.4.pyz --project=/path/to/your/project changelog html
+python3 changeln-1.0.6.pyz --project=/path/to/your/project changelog html
 
 # update CHANGELOG.pdf
-python3.6 changeln-1.0.4.pyz --project=/path/to/your/project changelog pdf
+python3 changeln-1.0.6.pyz --project=/path/to/your/project changelog pdf
 ```
 
 #### snap
@@ -57,7 +57,7 @@ changeln --project=/path/to/your/project changelog pdf
 
 ### Preview
 
-![picture](data/preview.png)
+![picture](data/screenshot-51.png)
 
 FYI, ln	= natural **log**arithm ;)
 
