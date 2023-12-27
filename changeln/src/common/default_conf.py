@@ -21,6 +21,10 @@ def gen_default_conf():
 # Base template format is Markdown - https://python-markdown.github.io/
 ---
 
+### Tag find
+# tags: {regex}
+tags: '.*'
+
 ### Group commits
 # {group name}: {regex}
 groups:

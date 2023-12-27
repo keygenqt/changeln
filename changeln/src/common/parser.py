@@ -27,34 +27,37 @@ class Parser:
     def get_branch(self):
         return self.repo.active_branch.name
 
-    def ln_last(self):
-        tags = sorted(self.repo.tags, key=lambda t: t.commit.committed_datetime)
-        if tags:
-            return tags[-1]
-        else:
-            'None'
-
-    def ln_released(self):
-        return len(self.repo.tags)
-
-    def ln_list_tags(self):
-        tags = []
+    def ln_last(self, find_tags):
+        pattern = re.compile(find_tags)
         for tag in reversed(natsorted(self.repo.git.tag().split('\n'), key=lambda y: y.lower())):
             for item in self.repo.tags:
-                if tag == item.name:
-                    tags.append(item)
-        return tags
+                if tag == item.name and pattern.match(tag):
+                    return tag
+        return 'None'
 
-    def ln_list_tags_commits(self):
-        tags = []
+    def ln_released(self, find_tags):
+        return len(self.ln_list_tags(find_tags))
 
-        list_tags = self.ln_list_tags()
+    def ln_list_tags(self, find_tags):
+        result_tags = []
+        pattern = re.compile(find_tags)
+        for tag in reversed(natsorted(self.repo.git.tag().split('\n'), key=lambda y: y.lower())):
+            for item in self.repo.tags:
+                if tag == item.name and pattern.match(tag):
+                    result_tags.append(item)
+        return result_tags
+
+    def ln_list_tags_commits(self, find_tags):
+        result_tags = []
+
+        list_tags = self.ln_list_tags(find_tags)
         if list_tags:
             to = 'HEAD'
             tag = None
             for tag in list_tags:
                 data = list(self.repo.iter_commits('{}...{}'.format(tag, to), no_merges=True))
-                tags.append(dict(
+
+                result_tags.append(dict(
                     to=('TAG', 'HEAD')[to == 'HEAD'],
                     tag=(to, None)[to == 'HEAD'],
                     data=data
@@ -62,18 +65,18 @@ class Parser:
                 to = tag
 
             if tag is not None:
-                tags.append(dict(
+                result_tags.append(dict(
                     to='TAG',
                     tag=tag,
                     data=list(self.repo.iter_commits(tag, no_merges=True))
                 ))
 
-        return tags
+        return result_tags
 
-    def ln_list_groups(self, groups):
-        tags = self.ln_list_tags_commits()
+    def ln_list_groups(self, groups, find_tags):
+        result_tags = self.ln_list_tags_commits(find_tags)
         result = []
-        for tag in tags:
+        for tag in result_tags:
             commits = dict()
             for item in tag['data']:
                 for message in item.message.split('\n'):

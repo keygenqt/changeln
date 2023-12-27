@@ -22,6 +22,7 @@ from changeln.src.components.helper import *
 
 CONF_PROJECTS = 'projects'
 CONF_GROUPS = 'groups'
+CONF_TAGS = 'tags'
 
 
 class Config:
@@ -70,6 +71,12 @@ class Config:
                 return []
 
         if name == CONF_GROUPS:
+            if name in self.conf:
+                return self.conf[name]
+            else:
+                return {}
+
+        if name == CONF_TAGS:
             if name in self.conf:
                 return self.conf[name]
             else:

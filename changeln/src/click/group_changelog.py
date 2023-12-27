@@ -42,15 +42,16 @@ def _save(path, result):
 
 def _gen_changelog(ctx):
     """Common gen changelog."""
-    p = Parser(ctx.obj.project)
-    t = ctx.obj.template
-    g = ctx.obj.get('groups')
-    return Template(t).render(
+    parser = Parser(ctx.obj.project)
+    template = ctx.obj.template
+    tags = ctx.obj.get('tags')
+    groups = ctx.obj.get('groups')
+    return Template(template).render(
         ln_date=datetime.datetime.now(),
-        ln_last=p.ln_last(),
-        ln_released=p.ln_released(),
-        ln_list_tags=p.ln_list_tags(),
-        ln_list_groups=p.ln_list_groups(g)
+        ln_last=parser.ln_last(tags),
+        ln_released=parser.ln_released(tags),
+        ln_list_tags=parser.ln_list_tags(tags),
+        ln_list_groups=parser.ln_list_groups(groups, tags)
     )
 
 
