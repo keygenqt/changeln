@@ -12,7 +12,7 @@ The application allows you to generate CHANGELOG files based on Git tags.
 #### Documentation:
 <p>
     <a href="https://keygenqt.github.io/changeln">
-        <img src="data/see_more.gif" width="136px"/>
+        <img src="data/other/see_more.gif" width="136px"/>
     </a>
 </p>
 
