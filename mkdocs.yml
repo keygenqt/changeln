@@ -1,0 +1,71 @@
+site_name: Changeln
+repo_name: Changeln GitHub
+site_dir: docs-static
+site_url: https://keygenqt.github.io/changeln
+repo_url: https://github.com/keygenqt/changeln
+site_description: The application allows you to generate CHANGELOG files based on Git tags.
+
+# Navigation
+nav:
+  - Main:
+      - Aurora CLI: index.md
+      - Links:
+          - PyPi: https://pypi.org/project/changeln
+          - GitHub: https://github.com/keygenqt/changeln
+          - Versions: https://github.com/keygenqt/changeln/tags
+
+# Assets
+extra_css:
+  - assets/css/main.css
+
+# Extensions
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+
+# Configuration
+theme:
+  name: 'material'
+  language: 'en'
+  custom_dir: docs/assets
+  favicon: images/favicon.ico
+  icon:
+    logo: custom/icon
+  features:
+    - toc.integrate
+    - content.action.edit
+    - content.code.annotate
+    - content.code.copy
+    - content.tooltips
+    - navigation.footer
+    - navigation.indexes
+    - navigation.sections
+    - navigation.tabs
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+  palette:
+    - scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
