@@ -35,8 +35,6 @@ theme:
   language: 'en'
   custom_dir: docs/assets
   favicon: images/favicon.ico
-  icon:
-    logo: custom/icon
   features:
     - toc.integrate
     - content.action.edit
