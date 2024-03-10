@@ -1,7 +1,7 @@
 Changeln
 ===================
 
-### Subscribe and like! <img src="https://github.com/keygenqt/changeln/blob/dev/data/other/star.gif" width="16px"/>
+### Subscribe and like! <img src="https://github.com/keygenqt/changeln/blob/dev/data/other/star.gif?raw=true" width="16px"/>
 
 [![PyPI version](https://badge.fury.io/py/changeln.svg)](https://badge.fury.io/py/changeln)
 

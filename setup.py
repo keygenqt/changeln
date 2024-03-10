@@ -28,10 +28,10 @@ limitations under the License.
 
 setuptools.setup(
     name='changeln',
-    version='1.0.6',
+    version='2.0.0',
     author='Vitaliy Zarubin',
     author_email='keygenqt@gmail.com',
-    description='Automatically generate change log from your tags',
+    description='The application allows you to generate CHANGELOG files based on Git tags.',
     long_description=long_description,
     long_description_content_type='text/markdown',
     url="https://github.com/keygenqt/changeln",
@@ -39,20 +39,18 @@ setuptools.setup(
     include_package_data=True,
     py_modules=['colors'],
     install_requires=[
-        'cffi',
-        'pillow',
-        'click',
-        'Mako',
-        'pyYaml',
-        'gitpython',
-        'natsort',
-        'Markdown',
-        'WeasyPrint',
-        'setuptools',
+        'click>=8.1.7',
+        'pyYaml>=6.0.1',
+        'Mako>=1.3.2',
+        'Markdown>=3.5.2',
+        'weasyprint>=61.1',
+        'cffi>=1.16.0',
+        'GitPython>=3.1.41',
+        'natsort>=8.4.0',
     ],
-    python_requires='>=3.6.9',
+    python_requires='>=3.8.2',
     entry_points="""
         [console_scripts]
-        changeln = changeln.__main__:cli
+        changeln = changeln.__main__:main
     """
 )

@@ -8,7 +8,7 @@ site_description: The application allows you to generate CHANGELOG files based o
 # Navigation
 nav:
   - Main:
-      - Aurora CLI: index.md
+      - Changeln: index.md
       - Links:
           - PyPi: https://pypi.org/project/changeln
           - GitHub: https://github.com/keygenqt/changeln
@@ -35,6 +35,7 @@ theme:
   language: 'en'
   custom_dir: docs/assets
   favicon: images/favicon.ico
+  logo: images/favicon.ico
   features:
     - toc.integrate
     - content.action.edit

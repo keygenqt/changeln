@@ -18,7 +18,7 @@ Config.init_conf()
 @click.option('--conf', '-c', default=None, help='Specify config path.', type=click.STRING, required=False)
 @click.option('--template', '-t', default=None, help='Specify template path.', type=click.STRING, required=False)
 @click.option('--output', '-o', default=None, help='Output file path.', type=click.STRING, required=False)
-def cli(ctx, test, conf, template, project, output):
+def main(ctx, test, conf, template, project, output):
     """Automatically generate change log from your tags."""
     if not Path(project).is_dir():
         click.echo(click.style("\nNot found dir {}.\n".format(project), fg="red"))
@@ -30,7 +30,7 @@ def cli(ctx, test, conf, template, project, output):
         ctx.obj = Config(test, conf, template, project, output)
 
 
-cli.add_command(cli_changelog)
+main.add_command(cli_changelog)
 
 if __name__ == '__main__':
-    cli(obj={})
+    main(obj={})
