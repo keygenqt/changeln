@@ -20,67 +20,38 @@ CHANGELOG_TEMPLATE = r'''### Changeln template example
 
 <%! from datetime import datetime %>
 
-${"##"} Updated: ${ln_date.strftime('%d/%m/%Y %H:%M:%S %p')}
+${"##"} Updated: ${ln_date.strftime('%m/%d/%Y %H:%M:%S %p')}
 
 ${"##"} Info
 
 - Last tag: ${ln_last}
-- Released: ${ln_released}
+- Released: ${ln_count_tags}
 
 ${"##"} Versions
 % for item in ln_list_tags:
 - Version: ${item.name} (${datetime.fromtimestamp(item.commit.committed_date).strftime('%d/%m/%Y')})
 % endfor
 
-% for item in ln_list_groups:
+% for tag in ln_group_commits:
 
-    % if item['to'] == 'HEAD':
-        ${"###"} HEAD (${ln_date.strftime('%d/%m/%Y %H:%M:%S %p')})
-    % else:
-        ${"###"} Version: ${item['tag'].name} (${datetime.fromtimestamp(item['tag'].commit.committed_date).strftime('%d/%m/%Y')})
-    % endif
-
-    % if item['Feature'] or item['Change'] or item['Bug']:
-
-        ${'####'} Feature
-
-        % if not item['Feature']:
-            *None*
-        % endif
-        % for feature in item['Feature']:
-            * [${feature['optional'][0]}] ${feature['optional'][2]} (${feature['commit'].author})
-        % endfor
-
-        ${'####'} Change
-
-        % if not item['Change']:
-            *None*
-        % endif
-        % for change in item['Change']:
-            * [${change['optional'][0]}] ${change['optional'][2]} (${change['commit'].author})
-        % endfor
-
-        ${'####'} Bug
-
-        % if not item['Bug']:
-            *None*
-        % endif
-        % for bug in item['Bug']:
-            * [${bug['optional'][0]}] ${bug['optional'][2]} (${bug['commit'].author})
-        % endfor
-
-    % else:
-        % for data in item['data']:
-            %if 'update' in data.message:
-                <% continue %>
-            % endif
-            %if '---------------------------' in data.message:
-                <% continue %>
-            % endif
-            * ${data.message.strip()} (${data.author})
+    % if tag['commits']:
+        % if tag['name'] == 'HEAD':
+            ${"###"} HEAD (${ln_date.strftime('%d/%m/%Y')})
         % else:
-            *None*
-        % endfor
+            ${"###"} Version: ${tag['name']} (${datetime.fromtimestamp(tag['date']).strftime('%d/%m/%Y')})
+        % endif
     % endif
+
+    % for group in tag['group']:
+
+        % if group['commits']:
+            ${"####"} ${group['name']}
+
+            % for commit in group['commits']:
+                - ${commit['clean']} (${commit['commit'].author})
+            % endfor
+        % endif
+
+    % endfor
 % endfor
 '''

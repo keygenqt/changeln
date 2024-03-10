@@ -39,15 +39,19 @@ def _gen_changelog(ctx) -> str:
 
     ln_date = datetime.now()
     ln_last = parser.get_last_tag()
+    ln_list_tags = parser.get_tags()
     ln_count_tags = parser.get_count_tags()
+    ln_group_commits = parser.get_group_commits()
 
     out = Template(ctx.obj.get_template()).render(
         ln_date=ln_date,
         ln_last=ln_last,
+        ln_list_tags=ln_list_tags,
         ln_count_tags=ln_count_tags,
+        ln_group_commits=ln_group_commits,
     ).strip()
 
-    return re.sub(r'\n\n+', '\n\n', out)
+    return '\n'.join([line.strip() for line in re.sub(r'\n\n+', '\n\n', out).split('\n')])
 
 
 def group_make(ctx: {}, output: str):

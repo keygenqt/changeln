@@ -13,6 +13,10 @@ rm -r dist build ./*.egg-info
 # Dependency
 pip install . --target dist
 
+# Create dir builds if not exist
+
+mkdir -pv builds
+
 # Build pyz
 shiv --site-packages dist --compressed -p '.venv python' -o "builds/$APP_NAME-$APP_VERSION.pyz" -e changeln.__main__:main
 

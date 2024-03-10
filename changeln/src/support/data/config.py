@@ -28,8 +28,8 @@ template: ./changeln.mako
 
 ## Parse commit for get data in mako template
 ## using regular expressions
-parse: '(.+)\s\[(.+)\]\s+(.+)'
+parse: ''
 
 ## Filter tags using regular expressions
-filter: '.*'
+filter: ''
 '''
