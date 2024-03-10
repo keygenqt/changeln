@@ -1,5 +1,5 @@
 """
-Copyright 2021 Vitaliy Zarubin
+Copyright 2021-2024 Vitaliy Zarubin
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -14,21 +14,22 @@ See the License for the specific language governing permissions and
 limitations under the License.
 """
 
-def gen_default_conf():
-    return """### Changeln Configuration Settings
+CHANGELOG_CONF = r'''## Application configuration file Changeln
+## Version config: 0.0.2
 
-# Template engine is Mako - https://www.makotemplates.org/
-# Base template format is Markdown - https://python-markdown.github.io/
----
+## Tags in commit for distribution of comments by groups
+commits:
+  Bug: '[bug]'
+  Change: '[change]'
+  Feature: '[feature]'
 
-### Tag find
-# tags: {regex}
-tags: '.*'
+## Path to mako template
+template: ./changeln.mako
 
-### Group commits
-# {group name}: {regex}
-groups:
-  Bug: '(.+)\s\[(Bug)\]\s+(.+)'
-  Change: '(.+)\s\[(Change)\]\s+(.+)'
-  Feature: '(.+)\s\[(Feature)\]\s+(.+)'
-"""
+## Parse commit for get data in mako template
+## using regular expressions
+parse: '(.+)\s\[(.+)\]\s+(.+)'
+
+## Filter tags using regular expressions
+filter: '.*'
+'''

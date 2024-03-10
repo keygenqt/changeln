@@ -1,5 +1,5 @@
 """
-Copyright 2021 Vitaliy Zarubin
+Copyright 2021-2024 Vitaliy Zarubin
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -14,8 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 """
 
-def gen_default_template():
-    return """### Changeln template example
+CHANGELOG_TEMPLATE = r'''### Changeln template example
 ### Template engine is Mako - https://www.makotemplates.org/
 ### Base template format is Markdown - https://python-markdown.github.io/
 
@@ -84,4 +83,4 @@ ${"##"} Versions
         % endfor
     % endif
 % endfor
-"""
+'''
