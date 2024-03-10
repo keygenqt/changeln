@@ -13,22 +13,67 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 """
+import os
+import re
+from datetime import datetime
+from pathlib import Path
+
+import markdown as mark
+from mako.template import Template
+from weasyprint import HTML
+
 from changeln.src.support.conf import OutType
 from changeln.src.support.output import echo_stdout
+from changeln.src.support.parse_git import ParseGit
+from changeln.src.support.texts import AppTexts
+
+
+# Generate html from template mako
+def _gen_changelog(ctx) -> str:
+    """Common gen changelog."""
+    parser = ParseGit(
+        commits=ctx.obj.get_commits(),
+        parse_commit=ctx.obj.get_parse(),
+        filter_tags=ctx.obj.get_filter(),
+    )
+
+    ln_date = datetime.now()
+    ln_last = parser.get_last_tag()
+    ln_count_tags = parser.get_count_tags()
+
+    out = Template(ctx.obj.get_template()).render(
+        ln_date=ln_date,
+        ln_last=ln_last,
+        ln_count_tags=ln_count_tags,
+    ).strip()
+
+    return re.sub(r'\n\n+', '\n\n', out)
 
 
 def group_make(ctx: {}, output: str):
     """Generate changelog."""
 
-    echo_stdout(str(ctx.obj.get_template()))
-    echo_stdout(str(ctx.obj.get_parse()))
-    echo_stdout(str(ctx.obj.get_filter()))
-    echo_stdout(str(ctx.obj.get_commits()))
+    try:
+        out_md = _gen_changelog(ctx)
+    except Exception as e:
+        echo_stdout(AppTexts.error_template_parse(e))
+        exit(1)
+
+    out_path = Path(os.getcwd())
 
     match OutType(output):
         case OutType.markdown:
-            print(1)
+            out_path = out_path / 'changelog.md'
+            with open(out_path, 'w') as file:
+                print(out_md, file=file)
         case OutType.html:
-            print(2)
+            out_path = out_path / 'changelog.html'
+            out_html = mark.markdown(out_md)
+            with open(out_path, 'w') as file:
+                print(out_html, file=file)
         case OutType.pdf:
-            print(3)
+            out_path = out_path / 'changelog.pdf'
+            out_html = mark.markdown(out_md)
+            HTML(string=out_html).write_pdf(out_path)
+
+    echo_stdout(AppTexts.success_save_changelog(str(out_path)))

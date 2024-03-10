@@ -23,12 +23,20 @@ class AppTexts(Enum):
         return '<red>Application</red> "git" <red>not found, install it.</red>'
 
     @staticmethod
+    def error_template_parse(error: Exception):
+        return '<red>Template parsing error.</red>\n{}: {}.'.format(type(error).__name__, error)
+
+    @staticmethod
     def confirm_init():
         return 'Add changeln configuration files to the project?'
 
     @staticmethod
     def success_init():
         return '<green>Configuration files added successfully.</green>'
+
+    @staticmethod
+    def success_save_changelog(path: str):
+        return '<green>Changelog saved successfully:</green> {}'.format(path)
 
     @staticmethod
     def not_found_git_folder():

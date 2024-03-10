@@ -8,30 +8,7 @@
 #     def __init__(self, path):
 #         self.path = path
 #         self.repo = git.Repo(path)
-#
-#     def get_branch(self):
-#         return self.repo.active_branch.name
-#
-#     def ln_last(self, find_tags):
-#         pattern = re.compile(find_tags)
-#         for tag in reversed(natsorted(self.repo.git.tag().split('\n'), key=lambda y: y.lower())):
-#             for item in self.repo.tags:
-#                 if tag == item.name and pattern.match(tag):
-#                     return tag
-#         return 'None'
-#
-#     def ln_released(self, find_tags):
-#         return len(self.ln_list_tags(find_tags))
-#
-#     def ln_list_tags(self, find_tags):
-#         result_tags = []
-#         pattern = re.compile(find_tags)
-#         for tag in reversed(natsorted(self.repo.git.tag().split('\n'), key=lambda y: y.lower())):
-#             for item in self.repo.tags:
-#                 if tag == item.name and pattern.match(tag):
-#                     result_tags.append(item)
-#         return result_tags
-#
+
 #     def ln_list_tags_commits(self, find_tags):
 #         result_tags = []
 #
