@@ -1,4 +1,4 @@
-## Updated: 03/11/2024 18:22:07 PM
+## Updated: 03/11/2024 18:26:25 PM
 
 ## Info
 
@@ -9,3 +9,9 @@
 - Version: 1.0.4 (26/01/2021)
 - Version: 1.0.3 (26/01/2021)
 - Version: 1.0.2 (26/01/2021)
+
+### HEAD (11/03/2024)
+
+#### Change
+
+- Refactoring and update application to 2.0.0.
