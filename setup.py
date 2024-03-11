@@ -1,7 +1,7 @@
 import setuptools
 
 long_description = """
-![picture](https://github.com/keygenqt/changeln/blob/dev/data/banners/banner_round.png?raw=true)
+![picture](https://github.com/keygenqt/changeln/blob/main/data/banners/banner_round.png?raw=true)
 
 The application allows you to generate CHANGELOG files based on Git tags.
 

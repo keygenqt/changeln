@@ -1,11 +1,11 @@
 Changeln
 ===================
 
-### Subscribe and like! <img src="https://github.com/keygenqt/changeln/blob/dev/data/other/star.gif?raw=true" width="16px"/>
+### Subscribe and like! <img src="https://github.com/keygenqt/changeln/blob/main/data/other/star.gif?raw=true" width="16px"/>
 
 [![PyPI version](https://badge.fury.io/py/changeln.svg)](https://badge.fury.io/py/changeln)
 
-![picture](https://github.com/keygenqt/changeln/blob/dev/data/banners/banner_round.png?raw=true)
+![picture](https://github.com/keygenqt/changeln/blob/main/data/banners/banner_round.png?raw=true)
 
 The application allows you to generate CHANGELOG files based on Git tags.
 
