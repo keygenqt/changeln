@@ -14,7 +14,6 @@ rm -r dist build ./*.egg-info
 pip install . --target dist
 
 # Create dir builds if not exist
-
 mkdir -pv builds
 
 # Build pyz
