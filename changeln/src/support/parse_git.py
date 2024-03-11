@@ -6,6 +6,9 @@ import git
 from git import TagReference
 from natsort import natsorted
 
+from changeln.src.support.output import echo_stderr
+from changeln.src.support.texts import AppTexts
+
 
 class ParseGit:
     def __init__(self, commits: {}, parse_commit: str, filter_tags: str):
@@ -66,6 +69,7 @@ class ParseGit:
             ))
         return result
 
+    # Filter commits by tags from config commits
     def _filter_commit_name(self, commits: []):
         def check_tags(message: str) -> bool:
             for value in self.commits.values():
@@ -75,6 +79,7 @@ class ParseGit:
 
         return [commit for commit in commits if check_tags(commit.message)]
 
+    # Split multiple tags in one commit
     def _split_multi_commits(self, commits: []):
         result = []
         pattern = '({})'.format(('|'.join(self.commits.values())
@@ -109,20 +114,25 @@ class ParseGit:
 
         return result
 
+    # Find commits in tags
     def _get_tag_commits(self):
         result = []
         tags = self.get_tags()
         if not tags:
             # Get list HEAD...BOTTOM
-            result.append(dict(
-                name='HEAD',
-                date=datetime.now(),
-                commits=self._split_multi_commits(
-                    commits=self._filter_commit_name(
-                        commits=self.repo.iter_commits(no_merges=True)
+            try:
+                result.append(dict(
+                    name='HEAD',
+                    date=datetime.now(),
+                    commits=self._split_multi_commits(
+                        commits=self._filter_commit_name(
+                            commits=self.repo.iter_commits(no_merges=True)
+                        )
                     )
-                )
-            ))
+                ))
+            except ValueError:
+                echo_stderr(AppTexts.error_empty_repo())
+                exit(1)
         else:
             to = 'HEAD'
             # Get list HEAD...tag...tag

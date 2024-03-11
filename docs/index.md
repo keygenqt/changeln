@@ -1,6 +1,6 @@
 [![PyPI version](https://badge.fury.io/py/changeln.svg)](https://badge.fury.io/py/changeln)
 
-![picture](https://github.com/keygenqt/changeln/blob/dev/data/banners/banner_round.png?raw=true)
+![picture](images/banner_round.png)
 
 ### License
 

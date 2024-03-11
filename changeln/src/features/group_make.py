@@ -63,20 +63,20 @@ def group_make(ctx: {}, output: str):
         echo_stdout(AppTexts.error_template_parse(e))
         exit(1)
 
-    out_path = Path(os.getcwd())
+    out_path = ctx.obj.get_path_out()
 
     match OutType(output):
         case OutType.markdown:
-            out_path = out_path / 'changelog.md'
+            out_path = out_path / 'CHANGELOG.md'
             with open(out_path, 'w') as file:
                 print(out_md, file=file)
         case OutType.html:
-            out_path = out_path / 'changelog.html'
+            out_path = out_path / 'CHANGELOG.html'
             out_html = mark.markdown(out_md)
             with open(out_path, 'w') as file:
                 print(out_html, file=file)
         case OutType.pdf:
-            out_path = out_path / 'changelog.pdf'
+            out_path = out_path / 'CHANGELOG.pdf'
             out_html = mark.markdown(out_md)
             HTML(string=out_html).write_pdf(out_path)
 

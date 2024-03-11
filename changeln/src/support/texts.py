@@ -27,6 +27,10 @@ class AppTexts(Enum):
         return '<red>Template parsing error.</red>\n{}: {}.'.format(type(error).__name__, error)
 
     @staticmethod
+    def error_empty_repo():
+        return '<red>Could not find comments, the repository may be empty.</red>'
+
+    @staticmethod
     def confirm_init():
         return 'Add changeln configuration files to the project?'
 

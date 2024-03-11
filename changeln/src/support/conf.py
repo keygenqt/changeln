@@ -62,8 +62,8 @@ class Conf:
 
     @staticmethod
     def _get_path_conf(path, default):
-
         path = get_path_file(path)
+
         default = get_path_file(default, none=False)
 
         if path and str(path).lower().endswith('.yaml'):
@@ -105,8 +105,12 @@ class Conf:
             self.conf = load(file.read(), Loader=Loader)
 
     # Get config path
-    def get_path(self) -> Path:
-        return self.conf_path
+    def get_path_out(self) -> Path:
+        path = Path(os.path.dirname(self.conf_path))
+        if path.name == '.changeln':
+            return Path(os.path.dirname(path))
+        else:
+            return path
 
     # Get template
     def get_template(self) -> str:

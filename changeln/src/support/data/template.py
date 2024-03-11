@@ -17,6 +17,33 @@ limitations under the License.
 CHANGELOG_TEMPLATE = r'''### Changeln template example
 ### Template engine is Mako - https://www.makotemplates.org/
 ### Base template format is Markdown - https://python-markdown.github.io/
+###
+### Show all values: 
+### ${context.keys()}
+### ${context.__dict__}
+###
+### Structure:
+### ln_date: datetime
+### ln_last: str
+### ln_list_tags: [TagReference]
+### ln_count_tags: int
+### ln_group_commits: [
+###     name: str, 
+###     date: datetime,
+###     commits: [Commit],
+###     group: [
+###             {
+###                 name: str, 
+###                 commits: [
+###                     {
+###                         commit: Commit, 
+###                         regex: [], 
+###                         clean: str
+###                     }
+###                 ]
+###             }
+###          ]
+###     ]
 
 <%! from datetime import datetime %>
 
@@ -28,6 +55,7 @@ ${"##"} Info
 - Released: ${ln_count_tags}
 
 ${"##"} Versions
+
 % for item in ln_list_tags:
 - Version: ${item.name} (${datetime.fromtimestamp(item.commit.committed_date).strftime('%d/%m/%Y')})
 % endfor

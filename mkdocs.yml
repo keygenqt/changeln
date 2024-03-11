@@ -13,6 +13,15 @@ nav:
           - PyPi: https://pypi.org/project/changeln
           - GitHub: https://github.com/keygenqt/changeln
           - Versions: https://github.com/keygenqt/changeln/tags
+  - Install:
+      - Index: install/index.md
+      - pip: install/pip.md
+      - pyz: install/pyz.md
+      - source: install/source.md
+  - Using:
+      - Index: using/index.md
+      - Config: using/config.md
+      - Template: using/template.md
 
 # Assets
 extra_css:

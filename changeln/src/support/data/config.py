@@ -17,7 +17,8 @@ limitations under the License.
 CHANGELOG_CONF = r'''## Application configuration file Changeln
 ## Version config: 0.0.2
 
-## Tags in commit for distribution of comments by groups
+## Comment tags by which they will be searched
+## and groups by which they will be analyzed.
 commits:
   Bug: '[bug]'
   Change: '[change]'
@@ -26,10 +27,15 @@ commits:
 ## Path to mako template
 template: ./changeln.mako
 
-## Parse commit for get data in mako template
-## using regular expressions
+## Regular expression to break the comment into groups
+## to format the comment output in the changelog in the 
+## "regex" variable.
+##
+## The empty value is not used.
 parse: ''
 
 ## Filter tags using regular expressions
+##
+## The empty value is not used.
 filter: ''
 '''
