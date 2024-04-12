@@ -11,7 +11,7 @@ mkdir ~/.local/opt
 ### Download
 
 ```shell
-wget -x https://github.com/keygenqt/changeln/raw/main/builds/changeln-2.0.0.pyz \
+wget -x https://github.com/keygenqt/changeln/raw/main/builds/changeln-2.0.1.pyz \
   -O ~/.local/opt/changeln.pyz
 ```
 

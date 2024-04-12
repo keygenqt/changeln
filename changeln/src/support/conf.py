@@ -29,7 +29,7 @@ from changeln.src.support.texts import AppTexts
 
 # Data versions
 APP_NAME = 'changeln'
-APP_VERSION = '2.0.0'
+APP_VERSION = '2.0.1'
 
 # Default path config
 PATH_CONF = './.changeln/changeln.yaml'

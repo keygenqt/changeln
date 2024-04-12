@@ -23,7 +23,7 @@ from mako.template import Template
 from weasyprint import HTML
 
 from changeln.src.support.conf import OutType
-from changeln.src.support.output import echo_stdout
+from changeln.src.support.output import echo_stdout, echo_stderr
 from changeln.src.support.parse_git import ParseGit
 from changeln.src.support.texts import AppTexts
 
@@ -56,6 +56,12 @@ def _gen_changelog(ctx) -> str:
 
 def group_make(ctx: {}, output: str):
     """Generate changelog."""
+
+    # Check folder has .git
+    git_folder = Path(os.getcwd()) / '.git'
+    if not git_folder.is_dir():
+        echo_stderr(AppTexts.not_found_git_folder())
+        exit(1)
 
     try:
         out_md = _gen_changelog(ctx)
