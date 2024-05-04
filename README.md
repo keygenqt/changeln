@@ -16,6 +16,13 @@ The application allows you to generate CHANGELOG files based on Git tags.
     </a>
 </p>
 
+#### Article about Changeln:
+<p>
+    <a href="https://keygenqt.com/blog/16">
+        <img src="data/other/see_more.gif" width="136px"/>
+    </a>
+</p>
+
 ### License
 
 ```
